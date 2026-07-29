@@ -178,6 +178,9 @@
   .hero p.lede{
     font-size:18px;line-height:1.65;max-width:56ch;margin-top:28px;color:var(--muted-light);
   }
+  /* tighter than the 28px h1-to-lede gap, so the two paragraphs still read as
+     one block rather than as separate elements */
+  .hero p.lede + p.lede{margin-top:16px;}
   .hero-ctas{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;}
   .btn{
     font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.05em;
@@ -372,7 +375,8 @@
 <section class="hero wrap" id="top" tabindex="-1">
   <div class="eyebrow">IT Manager &amp; Digital Transformation Expert</div>
   <h1>I keep the systems running <em>and</em> re-engineer how the business works</h1>
-  <p class="lede">For seven years I've kept organisations' core technology running — and reshaped how they use it — across renewable energy, finance, and the public sector. I administer the enterprise platforms, secure the environment, and hold the uptime that keeps work moving; then I lead the engineers who build the apps, re-engineer the processes around them, and stay in it until the tools are adopted and the business impact is proven.</p>
+  <p class="lede">For seven years I've kept organisations' core technology running — and reshaped how they use it — across renewable energy, finance, and the public sector. I administer the enterprise platforms, secure the environment, and hold the uptime that keeps work moving.</p>
+  <p class="lede">Then I lead the engineers who build the apps, re-engineer the processes around them, and stay in it until the tools are adopted and the business impact is proven.</p>
   <div class="hero-ctas">
     <a href="#work" class="btn btn-primary">View Selected Work</a>
     <a href="#contact" class="btn btn-ghost">Get in Touch</a>
