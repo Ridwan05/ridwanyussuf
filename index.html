@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ridwan Yussuf | IT Manager &amp; Digital Transformation Expert</title>
+<meta name="description" content="IT Manager and digital transformation lead in Abuja, Nigeria. Seven years turning manual processes into enterprise platforms people actually adopt — across renewable energy, finance and the public sector. PMP, ITIL 4, MSc Information Management.">
+<meta name="theme-color" content="#2A0F17">
+
+<!-- Social sharing. TODO: once the site has a domain, set og:url and add an
+     og:image (1200x630 PNG, absolute URL), then switch twitter:card to
+     summary_large_image — the image is what makes a shared link stop a scroll. -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Ridwan Yussuf">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Ridwan Yussuf — IT Manager &amp; Digital Transformation Expert">
+<meta property="og:description" content="I build technology that people actually use. Enterprise platforms, AI adoption and IT operations across renewable energy, finance and the public sector.">
+<meta property="profile:first_name" content="Ridwan">
+<meta property="profile:last_name" content="Yussuf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ridwan Yussuf — IT Manager &amp; Digital Transformation Expert">
+<meta name="twitter:description" content="I build technology that people actually use. Enterprise platforms, AI adoption and IT operations across renewable energy, finance and the public sector.">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232A0F17'/><text x='16' y='22' font-family='monospace' font-size='14' font-weight='600' fill='%23D07986' text-anchor='middle'>RY</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#2A0F17;
+    --ink-soft:#3B1622;
+    --paper:#F0E9DE;
+    --paper-dim:#E6DCCC;
+    --brass:#8E2F3E;
+    --brass-hover:#A83B4B;      /* lighter than --brass, still 5.1:1 with --text-light */
+    --brass-bright:#D07986;     /* 5.8:1 on --ink — AA at small sizes */
+    --blue-line:#C6A15B;
+    --text-dark:#2A1119;
+    --text-light:#F1E7DE;
+    --muted-light:#C2A2A8;
+    --muted-dark:#6E5157;
+    --rule: rgba(241,231,222,0.16);
+    --rule-dark: rgba(42,17,25,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--text-light);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px;}
+  @media (max-width:640px){.wrap{padding:0 22px;}}
+
+  /* keep anchored section headings clear of the fixed topbar */
+  section{scroll-margin-top:96px;}
+  @media (max-width:640px){section{scroll-margin-top:84px;}}
+
+  .skip-link{
+    position:fixed;left:-9999px;top:0;z-index:100;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;
+    background:var(--brass);color:var(--text-light);
+    padding:12px 18px;border-radius:2px;
+  }
+  .skip-link:focus{left:24px;top:24px;}
+  /* the skip-link target is a landmark, not a control — no ring around the section */
+  [tabindex="-1"]:focus{outline:none;}
+
+  /* ---------- background schematic grid ---------- */
+  .grid-bg{
+    position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.35;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 40px;
+    background:linear-gradient(var(--ink) 78%, transparent);
+  }
+  @media (max-width:640px){.topbar{padding:18px 22px;}}
+  .wordmark{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;letter-spacing:0.06em;
+    color:var(--text-light);
+    line-height:1.3;
+  }
+  .wordmark b{color:var(--brass-bright);font-weight:600;}
+  .nav-toggle{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    border:1px solid var(--rule);
+    padding:9px 16px;border-radius:2px;
+    cursor:pointer;background:transparent;color:var(--text-light);
+    transition:border-color .2s, background .2s;
+  }
+  .nav-toggle:hover{border-color:var(--brass);background:rgba(208,121,134,0.10);}
+  .nav-toggle:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--brass-bright);outline-offset:3px;}
+  /* --brass-bright is only 2.6:1 on paper; darken the ring on light sheets so
+     any link added there still has a 3:1 indicator */
+  .sheet :focus-visible{outline-color:var(--brass);}
+
+  .nav-panel{
+    position:fixed;inset:0;z-index:60;
+    background:var(--ink);
+    display:flex;flex-direction:column;justify-content:center;
+    padding:40px;
+    transform:translateY(-100%);
+    /* visibility keeps the closed panel out of the tab order and the a11y tree;
+       it flips instantly on open and only after the slide-away on close */
+    visibility:hidden;
+    transition:transform .45s cubic-bezier(.65,0,.35,1), visibility .45s;
+  }
+  .nav-panel.open{transform:translateY(0);visibility:visible;}
+  .nav-panel a{
+    font-family:'Fraunces',serif;font-size:clamp(28px,7vw,60px);font-weight:500;
+    display:flex;align-items:baseline;gap:18px;
+    padding:14px 0;border-bottom:1px solid var(--rule);
+    color:var(--text-light);
+  }
+  .nav-panel a span{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--brass-bright);}
+  .nav-close{
+    position:absolute;top:22px;right:40px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    border:1px solid var(--rule);padding:9px 16px;border-radius:2px;
+    cursor:pointer;background:transparent;color:var(--text-light);
+  }
+
+  /* ---------- fixed spec title-block (blueprint-style) ---------- */
+  .title-block{
+    position:fixed;left:24px;bottom:24px;z-index:40;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    border:1px solid var(--rule);border-radius:2px;
+    background:rgba(42,15,23,0.85);backdrop-filter:blur(6px);
+    padding:12px 16px;line-height:1.7;color:var(--muted-light);
+    letter-spacing:0.03em;
+  }
+  .title-block b{color:var(--brass-bright);display:block;font-size:11px;font-weight:600;letter-spacing:.08em;}
+  /* The block is 221px wide at left:24px, so its right edge is at 245px. The
+     centred 1180px content column starts at (100vw - 1180)/2 + 40, which only
+     clears 245px once the viewport reaches ~1620px. Below that this element sat
+     directly on top of section body copy, so it is shown on wide screens only. */
+  @media (max-width:1639px){.title-block{display:none;}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding-top:120px;padding-bottom:80px;
+    position:relative;z-index:1;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--brass-bright);display:flex;align-items:center;gap:10px;margin-bottom:22px;
+  }
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--brass-bright);}
+  .hero h1{
+    font-size:clamp(36px,6.2vw,84px);line-height:0.98;font-weight:600;
+    max-width:18ch;color:var(--text-light);
+  }
+  .hero h1 em{font-style:normal;color:var(--brass-bright);}
+  .hero p.lede{
+    font-size:18px;line-height:1.65;max-width:56ch;margin-top:28px;color:var(--muted-light);
+  }
+  .hero-ctas{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.05em;
+    padding:14px 26px;border-radius:2px;transition:all .2s;display:inline-block;
+  }
+  .btn-primary{background:var(--brass);color:var(--text-light);}
+  .btn-primary:hover{background:var(--brass-hover);}
+  .btn-ghost{border:1px solid var(--rule);color:var(--text-light);}
+  .btn-ghost:hover{border-color:var(--brass);color:var(--brass-bright);}
+
+  .cred-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .cred{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted-light);border:1px solid var(--rule);padding:8px 14px;border-radius:2px;
+  }
+  .cred b{color:var(--brass-bright);font-weight:600;}
+
+  /* schematic diagram signature element */
+  .schematic{margin-top:64px;max-width:760px;}
+  .schematic svg{width:100%;height:auto;display:block;}
+  .schematic-caption{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted-light);
+    margin-top:10px;letter-spacing:.04em;
+  }
+
+  /* ---------- section shell ---------- */
+  section{position:relative;z-index:1;}
+  .sheet{
+    background:var(--paper);color:var(--text-dark);
+    padding:100px 0 110px;
+  }
+  .sheet.alt{background:var(--paper-dim);}
+  .sheet-header{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:1px solid var(--rule-dark);padding-bottom:26px;margin-bottom:56px;
+    flex-wrap:wrap;gap:16px;
+  }
+  .sheet-header .eyebrow-dark{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted-dark);
+  }
+  .sheet-header h2{font-size:clamp(26px,3.6vw,42px);color:var(--text-dark);max-width:22ch;}
+  .sheet-num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted-dark);white-space:nowrap;}
+
+  .intro-copy{max-width:74ch;font-size:17px;line-height:1.75;color:var(--text-dark);margin-bottom:60px;}
+  .intro-copy strong{color:var(--brass);font-weight:600;}
+
+  /* approach cards */
+  .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule-dark);border:1px solid var(--rule-dark);}
+  @media (max-width:900px){.approach-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.approach-grid{grid-template-columns:1fr;}}
+  .approach-card{background:var(--paper);padding:34px 30px;}
+  .approach-card .fig{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brass);letter-spacing:.08em;margin-bottom:16px;}
+  .approach-card h3{font-size:19px;margin-bottom:10px;color:var(--text-dark);}
+  .approach-card p{font-size:14.5px;line-height:1.65;color:var(--muted-dark);margin-bottom:16px;}
+  .approach-card .impact{
+    font-size:13px;line-height:1.6;border-top:1px dashed var(--rule-dark);padding-top:14px;color:var(--text-dark);
+  }
+  .approach-card .impact b{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--brass);display:block;margin-bottom:6px;
+  }
+
+  /* leadership triptych */
+  .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:60px;}
+  @media (max-width:800px){.triptych{grid-template-columns:1fr;}}
+  .tri-item .fig{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brass);margin-bottom:14px;}
+  .tri-item h4{font-size:20px;margin-bottom:12px;color:var(--text-dark);}
+  .tri-item p{font-size:14.5px;line-height:1.7;color:var(--muted-dark);}
+
+  /* work sheets */
+  .work-item{
+    border-top:1px solid var(--rule-dark);padding:56px 0;
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;
+  }
+  .work-item:last-child{border-bottom:1px solid var(--rule-dark);}
+  @media (max-width:860px){.work-item{grid-template-columns:1fr;gap:28px;}}
+  .work-left .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--brass);margin-bottom:14px;display:inline-block;
+  }
+  .work-left h3{font-size:clamp(22px,2.6vw,30px);margin-bottom:8px;color:var(--text-dark);max-width:24ch;}
+  .work-left .org{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted-dark);margin-bottom:16px;letter-spacing:.03em;}
+  .work-left p{font-size:15.5px;line-height:1.75;color:var(--muted-dark);}
+  .work-right{display:flex;flex-direction:column;gap:20px;}
+  .work-sub{border-left:2px solid var(--brass);padding-left:16px;}
+  .work-sub b{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--text-dark);display:block;margin-bottom:5px;
+  }
+  .work-sub p{font-size:14px;line-height:1.6;color:var(--muted-dark);}
+  .stat-row{display:flex;gap:36px;margin-top:8px;flex-wrap:wrap;}
+  .stat b{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--brass);display:block;line-height:1;}
+  .stat span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted-dark);}
+
+  /* timeline */
+  .timeline{border-top:1px solid var(--rule-dark);}
+  .tl-item{
+    display:grid;grid-template-columns:200px 1fr;gap:40px;
+    padding:26px 0;border-bottom:1px solid var(--rule-dark);
+  }
+  @media (max-width:640px){.tl-item{grid-template-columns:1fr;gap:6px;}}
+  .tl-item .tl-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--brass);letter-spacing:.04em;padding-top:4px;}
+  .tl-item h4{font-size:18px;color:var(--text-dark);margin-bottom:3px;}
+  .tl-item .tl-org{font-size:14px;color:var(--muted-dark);}
+
+  /* capabilities */
+  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px;}
+  @media (max-width:900px){.cap-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.cap-grid{grid-template-columns:1fr;}}
+  .cap-col b{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--brass);display:block;margin-bottom:16px;
+  }
+  .cap-col ul{list-style:none;}
+  .cap-col li{
+    font-size:14.5px;color:var(--text-dark);padding:8px 0;border-bottom:1px solid var(--rule-dark);
+    display:flex;align-items:center;gap:10px;
+  }
+  .cap-col li::before{content:'';width:5px;height:5px;background:var(--blue-line);border-radius:50%;flex-shrink:0;}
+
+  /* creds strip */
+  /* dividers drawn per-cell, not via a gap over a tinted container — an
+     incomplete final row would otherwise leave a visible block of --rule-dark */
+  .cert-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);margin-top:8px;
+    border-top:1px solid var(--rule-dark);border-left:1px solid var(--rule-dark);
+  }
+  @media (max-width:800px){.cert-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:460px){.cert-grid{grid-template-columns:1fr;}}
+  .cert{
+    background:var(--paper);padding:24px 22px;
+    border-right:1px solid var(--rule-dark);border-bottom:1px solid var(--rule-dark);
+  }
+  .cert .yr{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--brass);letter-spacing:.08em;margin-bottom:8px;}
+  .cert h4{font-size:15px;color:var(--text-dark);line-height:1.35;}
+
+  /* contact */
+  .contact{
+    background:var(--ink);color:var(--text-light);
+    padding:120px 0 60px;text-align:center;
+    position:relative;z-index:1;
+  }
+  .contact h2{font-size:clamp(30px,5vw,52px);max-width:18ch;margin:0 auto 20px;}
+  .contact p{font-size:16px;color:var(--muted-light);max-width:48ch;margin:0 auto 44px;}
+  .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+  .contact-links a{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    border:1px solid var(--rule);padding:14px 24px;border-radius:2px;transition:all .2s;
+  }
+  .contact-links a:hover{border-color:var(--brass);color:var(--brass-bright);}
+  /* page-level footer, sibling of .contact — the 90px above the rule is
+     .contact's 60px bottom padding plus this 30px. Padding, not margin: a
+     margin here would fall outside the background and let the fixed .grid-bg
+     show through as a band above the rule. */
+  footer{
+    background:var(--ink);position:relative;z-index:1;padding-top:30px;
+  }
+  .footer-inner{
+    max-width:1180px;margin:0 auto;
+    border-top:1px solid var(--rule);padding:26px 40px;
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted-light);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+  @media (max-width:640px){.footer-inner{padding:26px 22px;}}
+
+  ::selection{background:var(--brass);color:var(--text-light);}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#top">Skip to content</a>
+
+<div class="grid-bg"></div>
+
+<header class="topbar">
+  <div class="wordmark"><b>RIDWAN YUSSUF</b></div>
+  <button class="nav-toggle" id="navOpen" aria-expanded="false" aria-controls="navPanel">Menu</button>
+</header>
+
+<nav class="nav-panel" id="navPanel" aria-label="Main" inert>
+  <button class="nav-close" id="navClose">Close</button>
+  <a href="#approach"><span>01</span> Approach</a>
+  <a href="#work"><span>02</span> Selected Work</a>
+  <a href="#experience"><span>03</span> Experience</a>
+  <a href="#capabilities"><span>04</span> Capabilities</a>
+  <a href="#contact"><span>05</span> Contact</a>
+</nav>
+
+<div class="title-block" id="titleBlock"><b>SHEET 01 / 05 — HERO</b>R. YUSSUF<br>IT · DIGITAL TRANSFORMATION<br>PMP · ITIL 4 </div>
+
+<section class="hero wrap" id="top" tabindex="-1">
+  <div class="eyebrow">IT Manager &amp; Digital Transformation Expert</div>
+  <h1>I build technology that people <em>actually</em> use</h1>
+  <p class="lede">For seven years I've helped organisations — across renewable energy, finance, and the public sector — turn slow, manual processes into systems people trust. I run the platforms, lead the engineers who build the apps, and stay in it until the tools are genuinely adopted and the business impact is proven, not just launched.</p>
+  <div class="hero-ctas">
+    <a href="#work" class="btn btn-primary">View Selected Work</a>
+    <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+  </div>
+  <div class="cred-row">
+    <div class="cred"><b>7+</b> yrs experience</div>
+    <div class="cred">PMP <b>·</b> ITIL 4</div>
+    <div class="cred">MSc <b>·</b> Info Management</div>
+    <div class="cred">Abuja, Nigeria</div>
+  </div>
+
+  <div class="schematic">
+    <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Delivery lifecycle: discover, strategise, build, adopt, measure, then iterate on impact">
+      <!-- main pipeline line -->
+      <line x1="60" y1="82" x2="620" y2="82" stroke="#C6A15B" stroke-width="1.2" stroke-dasharray="4 4"></line>
+
+      <!-- stage 01 — DISCOVER -->
+      <rect x="14" y="42" width="92" height="80" fill="none" stroke="rgba(198,161,91,0.30)" stroke-width="0.7"></rect>
+      <text x="60" y="34" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#D07986" letter-spacing="1">01</text>
+      <circle cx="60" cy="82" r="5" fill="#D07986"></circle>
+      <text x="60" y="66" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F1E7DE" letter-spacing="1">DISCOVER</text>
+      <text x="60" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#C2A2A8">ASSESS · NEEDS</text>
+
+      <!-- stage 02 — STRATEGISE -->
+      <rect x="154" y="42" width="92" height="80" fill="none" stroke="rgba(198,161,91,0.30)" stroke-width="0.7"></rect>
+      <text x="200" y="34" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#D07986" letter-spacing="1">02</text>
+      <circle cx="200" cy="82" r="5" fill="#D07986"></circle>
+      <text x="200" y="66" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F1E7DE" letter-spacing="1">STRATEGISE</text>
+      <text x="200" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#C2A2A8">ROADMAP · PRIORITISE</text>
+
+      <!-- stage 03 — BUILD -->
+      <rect x="294" y="42" width="92" height="80" fill="none" stroke="rgba(198,161,91,0.30)" stroke-width="0.7"></rect>
+      <text x="340" y="34" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#D07986" letter-spacing="1">03</text>
+      <circle cx="340" cy="82" r="5" fill="#D07986"></circle>
+      <text x="340" y="66" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F1E7DE" letter-spacing="1">BUILD</text>
+      <text x="340" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#C2A2A8">AGILE · SDLC</text>
+
+      <!-- stage 04 — ADOPT -->
+      <rect x="434" y="42" width="92" height="80" fill="none" stroke="rgba(198,161,91,0.30)" stroke-width="0.7"></rect>
+      <text x="480" y="34" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#D07986" letter-spacing="1">04</text>
+      <circle cx="480" cy="82" r="5" fill="#D07986"></circle>
+      <text x="480" y="66" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F1E7DE" letter-spacing="1">ADOPT</text>
+      <text x="480" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#C2A2A8">TRAIN · CHANGE</text>
+
+      <!-- stage 05 — MEASURE -->
+      <rect x="574" y="42" width="92" height="80" fill="none" stroke="#D07986" stroke-width="0.9"></rect>
+      <text x="620" y="34" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#D07986" letter-spacing="1">05</text>
+      <circle cx="620" cy="82" r="5" fill="#D07986"></circle>
+      <text x="620" y="66" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#F1E7DE" letter-spacing="1">MEASURE</text>
+      <text x="620" y="108" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="#C2A2A8">KPIs · IMPACT</text>
+
+      <!-- feedback loop: measure -> discover -->
+      <path d="M620 124 C 620 188, 60 188, 60 126" fill="none" stroke="#C6A15B" stroke-width="1.1" stroke-dasharray="4 4"></path>
+      <polygon points="60,120 55,130 65,130" fill="#D07986"></polygon>
+      <text x="340" y="180" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#C2A2A8" letter-spacing="1.5">FEEDBACK LOOP · ITERATE ON IMPACT</text>
+    </svg>
+    <div class="schematic-caption">FIG. 1 — DELIVERY LIFECYCLE: BUSINESS NEED TO MEASURED IMPACT</div>
+  </div>
+</section>
+
+<section class="sheet" id="approach">
+  <div class="wrap">
+    <div class="sheet-header">
+      <div>
+        <div class="eyebrow-dark">My Approach</div>
+        <h2>Start with the business. Finish when it delivers.</h2>
+      </div>
+      <div class="sheet-num">SHEET 02 / 05</div>
+    </div>
+
+    <p class="intro-copy">I start with the <strong>business, not the technology</strong>. Every initiative begins with understanding how work actually happens — the real bottlenecks, not the assumed ones. From there it's disciplined delivery: prioritisation, agile execution across the SDLC, and governance built in from the start. But launching isn't finishing. I drive <strong>adoption</strong> through training and change management against a &gt;80% target — then measure the <strong>business impact</strong> to confirm the tool actually moved the needle, and feed what I learn back into the next iteration.</p>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="fig">FIG. 01 — DISCOVERY</div>
+        <h3>Assessment &amp; Requirements</h3>
+        <p>Current-state process assessments, structured requirements-gathering sessions with cluster leads, and process mapping to find the real inefficiencies — not just the ones stakeholders name.</p>
+        <div class="impact"><b>Impact</b>Embedded inside DREEF business clusters as the dedicated digital representative, translating business needs into engineering specs.</div>
+      </div>
+      <div class="approach-card">
+        <div class="fig">FIG. 02 — STRATEGY</div>
+        <h3>Strategy &amp; Prioritisation</h3>
+        <p>Digital strategy execution, product roadmaps, backlog management with traceability, and business cases that justify technology investment to leadership.</p>
+        <div class="impact"><b>Impact</b>Translated DREEF's digital strategy into an integrated suite of 8 enterprise systems behind one unified portal.</div>
+      </div>
+      <div class="approach-card">
+        <div class="fig">FIG. 03 — DELIVERY</div>
+        <h3>Agile SDLC Delivery</h3>
+        <p>Sprint planning, stand-ups, reviews and retrospectives across an in-house engineering team — coordinating requirements through go-live and iteration.</p>
+        <div class="impact"><b>Impact</b>Delivering a .NET / React platform suite with a 14-person cross-functional team.</div>
+      </div>
+      <div class="approach-card">
+        <div class="fig">FIG. 04 — QUALITY</div>
+        <h3>Quality &amp; Governance</h3>
+        <p>Code-review standards, QA strategy, UAT coordination, and defect triage — with digital governance and regulatory compliance embedded into every tooling decision.</p>
+        <div class="impact"><b>Impact</b>NDPA 2023 compliance and Microsoft Purview data governance embedded across platforms.</div>
+      </div>
+      <div class="approach-card">
+        <div class="fig">FIG. 05 — AUTOMATION</div>
+        <h3>AI &amp; Automation</h3>
+        <p>Enterprise AI deployment, Power Automate flows, and custom automations that collapse multi-day manual processes into minutes.</p>
+        <div class="impact"><b>Impact</b>Administer the enterprise Claude deployment; built AI for solar design, survey parsing, and report generation.</div>
+      </div>
+      <div class="approach-card">
+        <div class="fig">FIG. 06 — ADOPTION &amp; IMPACT</div>
+        <h3>Adoption &amp; Business Impact</h3>
+        <p>SOPs, training, and hands-on onboarding that turn a shipped tool into a used one — then KPI tracking and dashboards to prove it moved the business, not just the launch date.</p>
+        <div class="impact"><b>Impact</b>Drive &gt;80% adoption within embedded clusters, then measure the operational and decision-making gains.</div>
+      </div>
+    </div>
+
+    <div class="triptych">
+      <div class="tri-item">
+        <div class="fig mono">// IT OPERATIONS</div>
+        <h4>Platform &amp; IT Operations</h4>
+        <p>I keep the core stack running — M365, SharePoint, Teams, Azure AD, tenant administration, endpoint security, and disaster recovery — sustaining 99% uptime. I led an Office 365 migration for 126 users with zero downtime.</p>
+      </div>
+      <div class="tri-item">
+        <div class="fig mono">// DIGITAL TRANSFORMATION</div>
+        <h4>Transformation &amp; Strategy</h4>
+        <p>I re-engineer how work gets done and turn strategy into initiatives that stick — across development finance, financial services, renewable energy, and the public sector. Right now, that means digitising the operations behind off-grid rural electrification.</p>
+      </div>
+      <div class="tri-item">
+        <div class="fig mono">// ENGINEERING LEADERSHIP</div>
+        <h4>Team &amp; Engineering Leadership</h4>
+        <p>I line-manage an in-house engineering team — backend, frontend, design, and QA — setting technical direction and running the SDLC that ships DREEF's applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet alt" id="work">
+  <div class="wrap">
+    <div class="sheet-header">
+      <div>
+        <div class="eyebrow-dark">Selected Work</div>
+        <h2>Platforms, teams &amp; automations</h2>
+      </div>
+      <div class="sheet-num">SHEET 03 / 05</div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-left">
+        <span class="tag">Enterprise Platforms</span>
+        <h3>An Integrated Suite of 8 Enterprise Systems</h3>
+        <div class="org">DREEF · Digital Transformation Manager</div>
+        <p>Drove enterprise digital transformation across DREEF's off-grid rural electrification operations — delivering a .NET / React platform suite spanning Originating, Project Pipeline, Enumerator Management, Procurement, Productive Use of Energy, and a Learning Management System, plus shared Document and User Management behind a unified Workstation portal.</p>
+      </div>
+      <div class="work-right">
+        <div class="work-sub"><b>Challenge</b><p>Translate business needs across many functions into scalable platforms that support investment decision-making.</p></div>
+        <div class="work-sub"><b>Approach</b><p>Current-state assessments, functional requirements, backlog management, UAT, and milestone / risk / KPI reporting.</p></div>
+        <div class="work-sub"><b>My Role</b><p>Delivery lead over a 14-person cross-functional team; embedded governance and NDPA 2023 compliance.</p></div>
+        <div class="stat-row">
+          <div class="stat"><b>8</b><span>Enterprise systems</span></div>
+          <div class="stat"><b>14</b><span>Person team</span></div>
+          <div class="stat"><b>1,000+</b><span>Field enumerators</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-left">
+        <span class="tag">AI &amp; Automation</span>
+        <h3>Organisation-Wide AI Adoption &amp; Custom Automations</h3>
+        <div class="org">DREEF · Digital Transformation Manager</div>
+        <p>Administer the enterprise Claude deployment and design custom AI automations for PV solar design workbooks, survey data parsing, and community report generation — reducing multi-day manual processes to minutes and freeing technical teams for higher-value work.</p>
+      </div>
+      <div class="work-right">
+        <div class="work-sub"><b>Role</b><p>AI enablement lead — deployment administration, tool configuration for new workstreams, and automation design.</p></div>
+        <div class="work-sub"><b>Execution</b><p>Custom AI workflows, Power Automate flows, Microsoft Forms pipelines linked to SharePoint and Teams.</p></div>
+        <div class="stat-row">
+          <div class="stat"><b>Days→Min</b><span>Process time cut</span></div>
+          <div class="stat"><b>Org-wide</b><span>Deployment scope</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-left">
+        <span class="tag">Workflow Digitisation</span>
+        <h3>GRN &amp; IT Change (RFC) Systems for NSIA</h3>
+        <div class="org">Innovit / NSIA · Digital Transformation Consultant</div>
+        <p>Designed and delivered a Goods Receipt Note system digitising receipt verification and approval, and an IT Request-for-Change system automating change submission, review, and approval in line with ITIL practices — strengthening procurement controls, audit traceability, and governance.</p>
+      </div>
+      <div class="work-right">
+        <div class="work-sub"><b>Platform</b><p>Microsoft Power Platform — Power Apps, Power Automate, SharePoint.</p></div>
+        <div class="work-sub"><b>Outcome</b><p>Improved governance and reduced approval turnaround across procurement and IT change workflows.</p></div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-left">
+        <span class="tag">Migration &amp; Knowledge</span>
+        <h3>Zero-Downtime O365 Migration &amp; AI Memo Generation</h3>
+        <div class="org">NSIA · IT Consultant / TCL · DT Project Manager</div>
+        <p>Led an Office 365 migration for 126 users with zero downtime while maintaining compliance and security. Separately, built an AI-powered memo generation solution on Copilot Studio over a SharePoint repository of 1,000+ organisational memos — reducing drafting effort and improving knowledge reuse.</p>
+      </div>
+      <div class="work-right">
+        <div class="work-sub"><b>Scope</b><p>Migration, custom business applications, and knowledge automation across the Authority and multiple clients.</p></div>
+        <div class="stat-row">
+          <div class="stat"><b>126</b><span>Users migrated</span></div>
+          <div class="stat"><b>0</b><span>Downtime</span></div>
+          <div class="stat"><b>1,000+</b><span>Memos indexed</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-left">
+        <span class="tag">Fibre Infrastructure</span>
+        <h3>FTTH Broadband Access for 67 Estates</h3>
+        <div class="org">ipNX Nigeria · OSP Planning &amp; Design Engineer</div>
+        <p>Planned and designed the Fibre-to-the-Home infrastructure for 67 estates — connecting roughly 10,000 homes and businesses to fast, reliable broadband. From technical site surveys and route feasibility to detailed GPON network designs and bills of materials, I turned raw ground into last-mile connectivity that people actually use every day.</p>
+      </div>
+      <div class="work-right">
+        <div class="work-sub"><b>Role</b><p>End-to-end OSP design lead — surveys, route planning, technical drawings, and procurement documentation.</p></div>
+        <div class="work-sub"><b>Toolkit</b><p>GPON / FTTX design, AutoCAD, QGIS, bills of materials, field-team and contractor coordination.</p></div>
+        <div class="stat-row">
+          <div class="stat"><b>67</b><span>Estates designed</span></div>
+          <div class="stat"><b>10,000+</b><span>Homes &amp; businesses</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="experience">
+  <div class="wrap">
+    <div class="sheet-header">
+      <div>
+        <div class="eyebrow-dark">Experience</div>
+        <h2>A path from field engineering to digital leadership</h2>
+      </div>
+      <div class="sheet-num">SHEET 04 / 05</div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Dec 2025 — Present</div>
+        <div><h4>Digital Transformation Manager</h4><div class="tl-org">Distributed Renewable Energy Enhancement Facility (DREEF)</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jan 2025 — Dec 2025</div>
+        <div><h4>Digital Transformation Consultant</h4><div class="tl-org">Innovit — delivering for NSIA on Microsoft Power Platform</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Sept 2024 — Dec 2025</div>
+        <div><h4>Information Technology Manager</h4><div class="tl-org">DLM Capital Group</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Sept 2024 — Dec 2025</div>
+        <div><h4>Digital Transformation Project Manager</h4><div class="tl-org">Techspecialist Consulting Limited (TCL) — delivering for government agencies on Microsoft Power Platform</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Nov 2022 — Sept 2024</div>
+        <div><h4>IT Consultant</h4><div class="tl-org">Nigeria Sovereign Investment Authority (NSIA)</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jan 2022 — Sept 2024</div>
+        <div><h4>IT Associate / IT Analyst II</h4><div class="tl-org">Techspecialist Consulting Limited</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2019 — 2022</div>
+        <div><h4>OSP / Telecom Engineering &amp; Project Roles</h4><div class="tl-org">ipNX Nigeria · Huawei Technologies · CITCC Nigeria — FTTH design across 67 estates (10,000+ homes); Galaxy Backbone NICTIB II QA</div></div>
+      </div>
+    </div>
+
+    <div class="sheet-header" style="margin-top:80px;">
+      <div>
+        <div class="eyebrow-dark">Credentials</div>
+        <h2>Certifications &amp; education</h2>
+      </div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert"><div class="yr">2024</div><h4>Project Management Professional (PMP)</h4></div>
+      <div class="cert"><div class="yr">2024</div><h4>ITIL 4 Foundation</h4></div>
+      <div class="cert"><div class="yr">MICROSOFT</div><h4>Power Platform App Maker Associate</h4></div>
+      <div class="cert"><div class="yr">GOOGLE</div><h4>Professional Cloud Architect</h4></div>
+      <div class="cert"><div class="yr">GOOGLE</div><h4>Associate Cloud Engineer</h4></div>
+      <div class="cert"><div class="yr">AWS</div><h4>Cloud Practitioner</h4></div>
+      <div class="cert"><div class="yr">ALTSCHOOL · 2023</div><h4>Diploma, Cloud Engineering</h4></div>
+      <div class="cert"><div class="yr">UDACITY (ALX) · 2022</div><h4>Nano Degree, Cloud Developer</h4></div>
+      <div class="cert"><div class="yr">2022–2023</div><h4>MSc, Information Management — Ahmadu Bello University</h4></div>
+      <div class="cert"><div class="yr">2013–2018</div><h4>B.Eng., Water Resources &amp; Environmental Eng. — University of Ilorin</h4></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet alt" id="capabilities">
+  <div class="wrap">
+    <div class="sheet-header">
+      <div>
+        <div class="eyebrow-dark">Capabilities</div>
+        <h2>The full toolkit</h2>
+      </div>
+      <div class="sheet-num">SHEET 05 / 05</div>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap-col">
+        <b>Strategy &amp; Transformation</b>
+        <ul>
+          <li>Digital strategy &amp; execution</li>
+          <li>Business process re-engineering</li>
+          <li>Program &amp; change management</li>
+          <li>Enterprise systems implementation</li>
+          <li>Emerging technology assessment</li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <b>Delivery &amp; Product</b>
+        <ul>
+          <li>Product management &amp; SDLC</li>
+          <li>Business analysis &amp; requirements</li>
+          <li>Agile ceremonies &amp; backlog mgmt</li>
+          <li>UAT coordination &amp; QA strategy</li>
+          <li>Vendor &amp; partner coordination</li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <b>Automation &amp; AI</b>
+        <ul>
+          <li>Microsoft Power Platform</li>
+          <li>Power Apps / Automate / BI</li>
+          <li>Microsoft Copilot Studio</li>
+          <li>Claude enterprise deployment</li>
+          <li>Custom AI automations</li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <b>Infrastructure &amp; Cloud</b>
+        <ul>
+          <li>Microsoft 365, SharePoint, Azure AD</li>
+          <li>Software development oversight</li>
+          <li>Azure · AWS · Google Cloud</li>
+          <li>Windows Server &amp; virtualisation</li>
+          <li>Endpoint security &amp; disaster recovery</li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <b>Data &amp; Governance</b>
+        <ul>
+          <li>Power BI &amp; KPI dashboards</li>
+          <li>Data &amp; document stewardship</li>
+          <li>Microsoft Purview</li>
+          <li>Digital governance frameworks</li>
+          <li>NDPA 2023 &amp; data protection</li>
+        </ul>
+      </div>
+      <div class="cap-col">
+        <b>Leadership &amp; Collaboration</b>
+        <ul>
+          <li>Engineering team line management</li>
+          <li>Stakeholder engagement &amp; workshops</li>
+          <li>Adoption &amp; training (&gt;80% KPI)</li>
+          <li>MS Project · Jira · Asana</li>
+          <li>Azure DevOps · GitHub</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">Let's build something</div>
+    <h2>Let's make technology work for your people</h2>
+    <p>Whether it's untangling a process, standing up a platform, or getting AI genuinely adopted across your teams — I'd love to hear what you're working on.</p>
+    <div class="contact-links">
+      <a href="mailto:yussufridwan0509@gmail.com">yussufridwan0509@gmail.com</a>
+      <a href="https://linkedin.com/in/ridwanyussuf" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>RIDWAN YUSSUF — IT MANAGER &amp; DIGITAL TRANSFORMATION EXPERT</span>
+    <span>ABUJA, FCT, NIGERIA</span>
+  </div>
+</footer>
+
+<script>
+  const navOpen = document.getElementById('navOpen');
+  const navClose = document.getElementById('navClose');
+  const navPanel = document.getElementById('navPanel');
+
+  const setNav = (open) => {
+    navPanel.classList.toggle('open', open);
+    navPanel.toggleAttribute('inert', !open);
+    navOpen.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+    (open ? navClose : navOpen).focus();
+  };
+
+  navOpen.addEventListener('click', () => setNav(true));
+  navClose.addEventListener('click', () => setNav(false));
+  navPanel.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => setNav(false))
+  );
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && navPanel.classList.contains('open')) setNav(false);
+  });
+
+  // update fixed title-block per section in view
+  const titleBlock = document.getElementById('titleBlock');
+  const sheets = [
+    {id:'top', label:'SHEET 01 / 05 — HERO'},
+    {id:'approach', label:'SHEET 02 / 05 — APPROACH'},
+    {id:'work', label:'SHEET 03 / 05 — SELECTED WORK'},
+    {id:'experience', label:'SHEET 04 / 05 — EXPERIENCE'},
+    {id:'capabilities', label:'SHEET 05 / 05 — CAPABILITIES'},
+    {id:'contact', label:'SHEET — CONTACT'}
+  ];
+  // A ratio threshold can never be met by a section taller than the viewport,
+  // so instead shrink the observer root to a thin band at 45% viewport height
+  // and report whichever section is currently crossing it.
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const match = sheets.find(s => s.id === e.target.id);
+        if(match) titleBlock.querySelector('b').textContent = match.label;
+      }
+    });
+  }, {rootMargin:'-45% 0px -55% 0px', threshold:0});
+  sheets.forEach(s => { const el = document.getElementById(s.id); if(el) io.observe(el); });
+</script>
+
+</body>
+</html>
