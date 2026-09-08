@@ -43,19 +43,26 @@
     --muted-dark:#6E5157;
     --rule: rgba(241,231,222,0.16);
     --rule-dark: rgba(42,17,25,0.14);
+
+    /* Motion curves. The built-in CSS easings are too weak to read as
+       deliberate; these are the standard strong equivalents. Anything entering
+       or exiting uses --ease-out; the nav panel uses --ease-drawer, the iOS
+       drawer curve. Hover and colour changes stay on the built-in `ease`,
+       which is the right curve for them. */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  /* scrollbar-gutter reserves the scrollbar's width permanently. Without it,
+     locking scroll to open the nav panel removes the scrollbar and shifts the
+     centred content column sideways in the same frame the panel starts sliding. */
+  html{scroll-behavior:smooth;scrollbar-gutter:stable;}
   body{
     background:var(--ink);
     color:var(--text-light);
     font-family:'Inter',sans-serif;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
-  }
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
   a{color:inherit;text-decoration:none;}
   h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
@@ -108,9 +115,13 @@
     border:1px solid var(--rule);
     padding:9px 16px;border-radius:2px;
     cursor:pointer;background:transparent;color:var(--text-light);
-    transition:border-color .2s, background .2s;
+    transition:border-color 200ms ease, background 200ms ease, transform 160ms var(--ease-out);
   }
-  .nav-toggle:hover{border-color:var(--brass);background:rgba(208,121,134,0.10);}
+  .nav-toggle:active{transform:scale(0.97);}
+  /* touch fires a false hover on tap and leaves it stuck */
+  @media (hover: hover) and (pointer: fine){
+    .nav-toggle:hover{border-color:var(--brass);background:rgba(208,121,134,0.10);}
+  }
   .nav-toggle:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--brass-bright);outline-offset:3px;}
   /* --brass-bright is only 2.6:1 on paper; darken the ring on light sheets so
      any link added there still has a 3:1 indicator */
@@ -125,14 +136,42 @@
     /* visibility keeps the closed panel out of the tab order and the a11y tree;
        it flips instantly on open and only after the slide-away on close */
     visibility:hidden;
-    transition:transform .45s cubic-bezier(.65,0,.35,1), visibility .45s;
+    /* Asymmetric: opening is the deliberate phase and carries the link stagger
+       (450ms, on .open below); closing is the system getting out of the way, so
+       it snaps at 300ms. The previous cubic-bezier(.65,0,.35,1) was a symmetric
+       ease-in-out, so the panel started slow in both directions — an entering
+       surface wants ease-out. Both durations sit inside the 200-500ms drawer
+       budget. Transitions, not keyframes: reversing mid-slide must retarget
+       from the panel's current position rather than restart. */
+    transition:transform 300ms var(--ease-drawer), visibility 300ms;
   }
-  .nav-panel.open{transform:translateY(0);visibility:visible;}
+  .nav-panel.open{
+    transform:translateY(0);visibility:visible;
+    transition:transform 450ms var(--ease-drawer), visibility 450ms;
+  }
+  /* Links fade up as the panel arrives, 40ms apart. The last one starts at
+     160ms and runs 300ms, landing with the panel's 450ms open rather than
+     after it. Delays live on .open only, so on close all five leave together —
+     the panel is already carrying them off screen. */
   .nav-panel a{
     font-family:'Fraunces',serif;font-size:clamp(28px,7vw,60px);font-weight:500;
     display:flex;align-items:baseline;gap:18px;
     padding:14px 0;border-bottom:1px solid var(--rule);
     color:var(--text-light);
+    opacity:0;transform:translateY(8px);
+    transition:opacity 300ms var(--ease-out), transform 300ms var(--ease-out), color 200ms ease;
+  }
+  .nav-panel.open a{opacity:1;transform:translateY(0);}
+  /* nth-of-type, not nth-child: .nav-close is the panel's first child element */
+  .nav-panel.open a:nth-of-type(2){transition-delay:40ms;}
+  .nav-panel.open a:nth-of-type(3){transition-delay:80ms;}
+  .nav-panel.open a:nth-of-type(4){transition-delay:120ms;}
+  .nav-panel.open a:nth-of-type(5){transition-delay:160ms;}
+  /* Must stay after the nth-of-type rules and match their specificity, or a
+     press on the fourth link would wait out its 120ms stagger delay. */
+  .nav-panel.open a:active{transform:scale(0.97);transition-duration:160ms;transition-delay:0ms;}
+  @media (hover: hover) and (pointer: fine){
+    .nav-panel a:hover{color:var(--brass-bright);}
   }
   .nav-panel a span{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--brass-bright);}
   .nav-close{
@@ -140,6 +179,11 @@
     font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
     border:1px solid var(--rule);padding:9px 16px;border-radius:2px;
     cursor:pointer;background:transparent;color:var(--text-light);
+    transition:border-color 200ms ease, transform 160ms var(--ease-out);
+  }
+  .nav-close:active{transform:scale(0.97);}
+  @media (hover: hover) and (pointer: fine){
+    .nav-close:hover{border-color:var(--brass);}
   }
 
   /* ---------- fixed spec title-block (blueprint-style) ---------- */
@@ -184,12 +228,18 @@
   .hero-ctas{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;}
   .btn{
     font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.05em;
-    padding:14px 26px;border-radius:2px;transition:all .2s;display:inline-block;
+    padding:14px 26px;border-radius:2px;display:inline-block;
+    transition:background 200ms ease, border-color 200ms ease, color 200ms ease, transform 160ms var(--ease-out);
   }
+  /* scale() takes the label with it, which is what makes it read as a press
+     rather than a resize. 0.97 is deliberately near-imperceptible. */
+  .btn:active{transform:scale(0.97);}
   .btn-primary{background:var(--brass);color:var(--text-light);}
-  .btn-primary:hover{background:var(--brass-hover);}
   .btn-ghost{border:1px solid var(--rule);color:var(--text-light);}
-  .btn-ghost:hover{border-color:var(--brass);color:var(--brass-bright);}
+  @media (hover: hover) and (pointer: fine){
+    .btn-primary:hover{background:var(--brass-hover);}
+    .btn-ghost:hover{border-color:var(--brass);color:var(--brass-bright);}
+  }
 
   .cred-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
   .cred{
@@ -329,9 +379,13 @@
   .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
   .contact-links a{
     font-family:'IBM Plex Mono',monospace;font-size:13px;
-    border:1px solid var(--rule);padding:14px 24px;border-radius:2px;transition:all .2s;
+    border:1px solid var(--rule);padding:14px 24px;border-radius:2px;
+    transition:border-color 200ms ease, color 200ms ease, transform 160ms var(--ease-out);
   }
-  .contact-links a:hover{border-color:var(--brass);color:var(--brass-bright);}
+  .contact-links a:active{transform:scale(0.97);}
+  @media (hover: hover) and (pointer: fine){
+    .contact-links a:hover{border-color:var(--brass);color:var(--brass-bright);}
+  }
   /* page-level footer, sibling of .contact — the 90px above the rule is
      .contact's 60px bottom padding plus this 30px. Padding, not margin: a
      margin here would fall outside the background and let the fixed .grid-bg
@@ -348,6 +402,46 @@
   @media (max-width:640px){.footer-inner{padding:26px 22px;}}
 
   ::selection{background:var(--brass);color:var(--text-light);}
+
+  /* ---------- reduced motion ---------- */
+  /* Deliberately the last block in the sheet: these rules override the
+     components above by source order, which is why none of them needs
+     !important. The previous implementation lived at the top and had to use
+     *{transition-duration:0.01ms !important} to reach anything — which also
+     killed the colour and opacity feedback that tells you the interface heard
+     you. Reduced motion means fewer and gentler animations, not zero: movement
+     is dropped, the colour and opacity channels stay. */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+
+    /* the panel crossfades in place instead of sliding down. It keeps
+       visibility:hidden and inert when closed, so sitting at translateY(0)
+       costs nothing — it takes no pointer events and stays out of the a11y tree. */
+    .nav-panel,
+    .nav-panel.open{
+      transform:none;
+      transition:opacity 200ms ease, visibility 200ms;
+    }
+    .nav-panel{opacity:0;}
+    .nav-panel.open{opacity:1;}
+
+    /* links arrive with the panel — no travel, no stagger. :nth-of-type(n)
+       matches every link and is written that way only to match the specificity
+       of the .open stagger rules above, which would otherwise win. */
+    .nav-panel a,
+    .nav-panel.open a:nth-of-type(n){
+      transform:none;
+      transition:opacity 200ms ease, color 200ms ease;
+      transition-delay:0ms;
+    }
+
+    /* press feedback keeps its colour channel, loses the squash */
+    .btn:active,
+    .nav-toggle:active,
+    .nav-close:active,
+    .nav-panel.open a:active,
+    .contact-links a:active{transform:none;}
+  }
 </style>
 </head>
 <body>
