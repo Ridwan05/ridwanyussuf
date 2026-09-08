@@ -26,15 +26,27 @@ their rules by source order and has to sit at the end of the stylesheet.
 ```
 001 ──► 002 ──┐
         004 ──┼──► 003 ──► 005
-        006 ──┘
-                             007 (independent)
+        006 ──┘     │
+                    └───► 007
 ```
 
 ## Dependencies
 
 - **002, 004, 006 require 001** — they use `var(--ease-out)` / `var(--ease-drawer)`.
 - **003 must be applied last of 002/004/006** — it is a source-order override.
-- **007 is independent** and can be done at any time.
+- **007 requires 001 and 003.** It uses `var(--ease-out)`, and its reduced-motion
+  override goes into 003's block and depends on that block staying last in the
+  stylesheet to beat 007's own `@media (scripting: enabled)` rule on source
+  order. Both are specificity `(0,2,0)`, so position is the only thing deciding.
+
+## Revisions
+
+- **007 revised 2026-09-08** (against `b90a6de`). The original draft hid the
+  schematic with a plain `opacity:0` in CSS, which would have made the hero
+  diagram invisible whenever JS did not run. It now hides behind
+  `@media (scripting: enabled)`. A `data-armed` attribute set from JS was
+  considered as the fix and rejected — it trades the blank diagram for a flash of
+  the complete diagram before the cascade. See the plan's Revision note.
 
 ## Not planned (deliberately rejected)
 
